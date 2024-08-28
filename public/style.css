@@ -1,0 +1,24 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.task-name {
+    font-weight: 700;
+}
+
+.task {
+    list-style: none;
+    border: 1px solid black;
+    margin-bottom: 0.2rem;
+    max-width: 600px;
+}
+
+#button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#button-container button {
+    margin: 0 0.2rem 0.2rem 0;
+}

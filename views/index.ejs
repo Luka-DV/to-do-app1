@@ -5,31 +5,49 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>To do</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-<!--         <h1>Current Rappers</h1>
-        <ul class="rappers">
-        <% for(let i=0; i < info.length; i++) {%>
-            <li class="rapper">
-                <span><%= info[i].stageName %></span>
-                <span><%= info[i].birthName %></span>
-                <span><%= info[i].likes %></span>
-                <span class='fa fa-thumbs-up'></span>
-                <span class='fa fa-trash'></span>
-            </li>
-        <% } %>
-        </ul>
 
-        <h2>Add A Rapper:</h2>
+        <nav>
+            <ul>
+                <li><a href="">Active Tasks</a></li>
+                <li><a href="">Tasks Done</a></li>
+            </ul>
+        </nav>
 
-        <form action="/addRapper" method="POST">
-            <input type="text" placeholder="Stage Name" name="stageName">
-            <input type="text" placeholder="Birth Name" name="birthName">
+        <h1>TO DO APP</h1>
+
+        <h2>Add a task:</h2>
+
+        <form action="/addTask" method="POST">
+            <input type="text" placeholder="Task Name" name="taskName" id="">
+            <input type="text" placeholder="Task Description" name="taskDescription" id="">
             <input type="submit">
         </form>
-         -->
 
-        <script src='js/main.js'></script>
+        <ul class="tasks">
+            <% for(let i=0; i < tasks.length; i++) {%>
+                <li class="task">
+                    <p class="task-name"><%= tasks[i].taskName %></p>
+                    <p><%= tasks[i].taskDescription %></p>
+                </li>
+                <div id="button-container">
+                    <button type="button">
+                        <span class="fa-solid fa-check" aria-hidden="true"></span> Done
+                    </button>
+                    <button type="button">
+                        <span class="fa-solid fa-pen-to-square" aria-hidden="true"></span> Edit
+                    </button>
+                    <button type="button">
+                        <span class="fa-solid fa-trash" aria-hidden="true"></span> Delete
+                    </button>
+                </div>
+            <% } %>
+            </ul>
+
+   
+        <script src='main.js'></script>
     </body>
 </html>

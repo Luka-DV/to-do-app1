@@ -30,23 +30,23 @@ async function runClient() {
         const db = client.db("to-do-app"); //database
         const taskCollection = db.collection("tasks") //returns reference/creates a new db colleciton
 
-            
-        app.get('/',(request, response)=>{
-            db.collection('rappers').find().sort({likes: -1}).toArray()
-            .then(data => {
-                response.render('index.ejs', { info: data })
-            })
-            .catch(error => console.error(error))
+        app.get("/", async (req, res) => {
+            // await taskCollection.deleteMany({}); // deletes all the documents in the collection > quick way to reset the collection
+            const data = await taskCollection.find().toArray(); //finds all the quotes and returns an array
+            // console.log("DATA: ", data);
+            res.render("index.ejs", { tasks: data}); //used to render the .ejs file
         })
 
-        app.post('/addRapper', (request, response) => {
-            db.collection('rappers').insertOne({stageName: request.body.stageName,
-            birthName: request.body.birthName, likes: 0})
-            .then(result => {
-                console.log('Rapper Added')
-                response.redirect('/')
-            })
-            .catch(error => console.error(error))
+        app.post("/addTask", async (req, res) => {
+            try {
+                await taskCollection.insertOne(req.body); //adds one item into a collection (vs insertMany())
+                // console.log("REQ.BODY: ", req.body);
+                // console.log("POST result: ", insertResult);
+                console.log("Task added");
+                res.redirect("/");
+            }catch(err) {
+                console.err(err);
+            }  
         })
 
         app.put('/addOneLike', (request, response) => {
@@ -75,7 +75,7 @@ async function runClient() {
             .catch(error => console.error(error))
 
         })
-        
+
         } catch (error) {
             console.error(error)
         }
