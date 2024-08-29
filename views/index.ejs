@@ -17,37 +17,44 @@
             </ul>
         </nav>
 
-        <h1>TO DO APP</h1>
+        <header class="flex-container">
+            <h1>TO DO APP</h1>
 
-        <h2>Add a task:</h2>
+            <h2>Add a task:</h2>
+    
+            <form action="/addTask" method="POST">
+                <input type="text" placeholder="Task Name" name="taskName" id="">
+                <input type="text" placeholder="Task Description" name="taskDescription" id="">
+                <input type="submit">
+            </form>
 
-        <form action="/addTask" method="POST">
-            <input type="text" placeholder="Task Name" name="taskName" id="">
-            <input type="text" placeholder="Task Description" name="taskDescription" id="">
-            <input type="submit">
-        </form>
+        </header>
 
-        <ul class="tasks">
-            <% for(let i=0; i < tasks.length; i++) {%>
-                <li class="task">
-                    <p class="task-name"><%= tasks[i].taskName %></p>
-                    <p><%= tasks[i].taskDescription %></p>
-                </li>
-                <div id="button-container">
-                    <button type="button">
-                        <span class="fa-solid fa-check" aria-hidden="true"></span> Done
-                    </button>
-                    <button type="button">
-                        <span class="fa-solid fa-pen-to-square" aria-hidden="true"></span> Edit
-                    </button>
-                    <button type="button">
-                        <span class="fa-solid fa-trash" aria-hidden="true"></span> Delete
-                    </button>
-                </div>
-            <% } %>
-            </ul>
+       <main class="flex-container">
+            <ul class="tasks flex-container">
+                <% for(let i=0; i < tasks.length; i++) {%>
+                    <li class="task-li">
+                        <div class="task-container">
+                            <p class="task-name"><%= tasks[i].taskName %></p>
+                            <p><%= tasks[i].taskDescription %></p>
+                        </div>   
+                        <div class="button-container">
+                            <button type="button">
+                                <span class="fa-solid fa-check" aria-hidden="true"></span> Done
+                            </button>
+                            <button type="button">
+                                <span class="fa-solid fa-pen-to-square" aria-hidden="true"></span> Edit
+                            </button>
+                            <button type="button">
+                                <span class="fa-solid fa-trash" aria-hidden="true"></span> Delete
+                            </button>
+                        </div>
+                    </li>
+                <% } %>
+                </ul>
 
-   
+       </main>
+        
         <script src='main.js'></script>
     </body>
 </html>
