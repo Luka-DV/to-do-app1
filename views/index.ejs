@@ -17,6 +17,7 @@
             <ul>
                 <li><a href="#">ACTIVE Tasks</a></li>
                 <li><a href="#">Tasks DONE</a></li>
+                <li><a href="#">Deleted</a></li>
             </ul>
         </nav>
 
@@ -25,9 +26,9 @@
 
             <h2>Add a task:</h2>
     
-            <form action="/addTask" method="POST">
-                <input type="text" placeholder="Task Name" name="taskName" id="">
-                <input type="text" placeholder="Task Description" name="taskDescription" id="">
+            <form action="/editTask" method="POST" class="tasks">
+                <input type="text" placeholder="Task Name" name="taskName" >
+                <textarea rows="3" placeholder="Task Description" name="taskDescription"></textarea>
                 <input type="submit">
             </form>
 
@@ -37,10 +38,12 @@
             <ul class="tasks flex-container">
                 <% for(let i=0; i < tasks.length; i++) {%>
                     <li class="task-li">
-                        <div class="task-container">
+                    
                             <p class="task-name"><%= tasks[i].taskName %></p>
-                            <p><%= tasks[i].taskDescription %></p>
-                        </div>   
+             
+                            <textarea id="story" name="story" rows="5" readonly="true"><%= tasks[i].taskDescription %></textarea>
+                                
+              
                         <div class="button-container">
                             <button type="button">
                                 <span class="fa-solid fa-check" aria-hidden="true"></span> Done
@@ -52,6 +55,7 @@
                                 <span class="fa-solid fa-trash" aria-hidden="true"></span> Delete
                             </button>
                         </div>
+
                     </li>
                 <% } %>
             </ul>

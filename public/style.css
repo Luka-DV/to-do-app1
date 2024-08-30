@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
@@ -11,6 +10,11 @@ ul {
 li {
     list-style: none;
 }
+
+body {
+    margin: 0;
+}
+
 
 nav {
     background: rgb(138, 212, 236);
@@ -48,6 +52,10 @@ main, header {
     margin-left: clamp(115px, 10%, 190px);
 }
 
+textarea {
+    width: 100%;
+}
+
 
 .flex-container {
     display: flex;
@@ -63,6 +71,7 @@ main, header {
 
 .task-name {
     font-weight: 700;
+    margin: 0 0 0.3rem 0;
 }
 
 .task-li {
@@ -71,9 +80,7 @@ main, header {
     margin-bottom: 1rem;
 }
 
-.task-container {
-    border: 1px solid black;
-}
+
 
 .button-container {
     display: flex;
@@ -83,6 +90,8 @@ main, header {
 .button-container button {
     margin-left: 0.2rem
 }
+
+
 
 @media  screen and (max-width: 1100px) {
     .tasks {
@@ -98,9 +107,9 @@ main, header {
 
     nav {
         width: 100%;
-        right: 0;
-        height: 90px;
-        padding-top: 0.8rem;
+        height: auto;
+        position: static;
+        padding: 0.5rem;
         margin: 0;
     }
 
@@ -120,9 +129,5 @@ main, header {
 
     main, header {
         margin-left: 0;
-    }
-
-    header {
-        margin-top: 90px;
     }
 }
