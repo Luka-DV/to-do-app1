@@ -17,7 +17,7 @@ body {
 
 
 nav {
-    background: rgb(138, 212, 236);
+    background: rgb(215, 236, 243);
     width: clamp(115px, 10%, 190px);
     height: 100%;
     position: fixed;
@@ -25,7 +25,9 @@ nav {
     left: 0;
     z-index: 1;
     padding-top: 10%;
+
 }
+
 
 nav a {
     padding: 2%;
@@ -38,6 +40,17 @@ nav a {
     display: inline-block;
     width: 90%;
   }
+
+nav ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#last-li {
+    margin-top: auto;
+    margin-bottom: 2rem;
+}
 
 nav a:hover {
     background: lightgreen
@@ -54,6 +67,7 @@ main, header {
 
 textarea {
     width: 100%;
+    overflow-y: hidden;
 }
 
 
@@ -125,6 +139,10 @@ textarea {
     
     nav li {
         margin-bottom: 0.2rem;
+    }
+
+    #last-li {
+        margin-bottom: auto;
     }
 
     main, header {

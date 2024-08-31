@@ -17,7 +17,7 @@
             <ul>
                 <li><a href="#">ACTIVE Tasks</a></li>
                 <li><a href="#">Tasks DONE</a></li>
-                <li><a href="#">Deleted</a></li>
+                <li id="last-li"><a href="#">Deleted</a></li>
             </ul>
         </nav>
 
@@ -26,7 +26,7 @@
 
             <h2>Add a task:</h2>
     
-            <form action="/editTask" method="POST" class="tasks">
+            <form action="/addTask" method="POST" class="tasks">
                 <input type="text" placeholder="Task Name" name="taskName" >
                 <textarea rows="3" placeholder="Task Description" name="taskDescription"></textarea>
                 <input type="submit">
