@@ -28,9 +28,12 @@
     
             <form action="/addTask" method="POST" class="tasks">
                 <input type="text" placeholder="Task Name" name="taskName" >
-                <textarea rows="3" placeholder="Task Description" name="taskDescription"></textarea>
+                <textarea class="task-input auto-grow" rows="3" placeholder="Task Description" name="taskDescription"></textarea>
                 <input type="submit">
             </form>
+
+       <!--      1. make non-resizible
+            2. da elementi obdržijo velikost, ko so klicani z baze -->
 
         </header>
 
@@ -41,7 +44,7 @@
                     
                             <p class="task-name"><%= tasks[i].taskName %></p>
              
-                            <textarea id="story" name="story" rows="5" readonly="true"><%= tasks[i].taskDescription %></textarea>
+                            <textarea class="task-input auto-grow" name="taskDescription" readonly="true"><%= tasks[i].taskDescription %></textarea>
                                 
               
                         <div class="button-container">

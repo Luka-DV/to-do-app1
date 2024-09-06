@@ -33,7 +33,7 @@ async function runClient() {
         app.get("/", async (req, res) => {
             // await taskCollection.deleteMany({}); // deletes all the documents in the collection > quick way to reset the collection
             const data = await taskCollection.find().toArray(); //finds all the quotes and returns an array
-            // console.log("DATA: ", data);
+            console.log("DATA: ", data);
             res.render("index.ejs", { tasks: data}); //used to render the .ejs file
         })
 

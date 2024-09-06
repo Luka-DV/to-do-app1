@@ -65,7 +65,8 @@ main, header {
     margin-left: clamp(115px, 10%, 190px);
 }
 
-textarea {
+.task-input {
+    height: auto;
     width: 100%;
     overflow-y: hidden;
 }
